@@ -26,6 +26,8 @@ const Convenience = Me.imports.convenience;
 let settings, item, iconLayout, originalUpdateCount;
 let counter = 0;
 
+let _settingChangeColorId;
+
 function customUpdateCount() {
     originalUpdateCount.call(this);
 
@@ -94,7 +96,7 @@ function enable() {
 
     item.set_position(0, 2);
 
-    this.settings.connect('changed::counter-color', function () {
+    _settingChangeColorId = this.settings.connect('changed::counter-color', function () {
         let color = settings.get_string('counter-color');
         item.set_style('color: ' + color + ';');
     });
@@ -111,6 +113,7 @@ function disable() {
     MessageTray.SourceActor.prototype._updateCount = originalUpdateCount;
     originalUpdateCount = null;
 
+    this.settings.disconnect(_settingChangeColorId);
     if (item) {
         item.destroy();
     }
