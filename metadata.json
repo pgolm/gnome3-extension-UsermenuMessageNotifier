@@ -1,0 +1,9 @@
+{
+    "shell-version": ["3.6"],
+    "uuid": "Usermenu_Message_Notifier@pgolm",
+    "name": "Usermenu Message Notifier",
+    "description": "Shows how many conversations with new messages you have in the usermenu.",
+    "settings-schema": "org.gnome.shell.extensions.Usermenu_Message_Notifier",
+    "url": "",
+    "version": 1
+}

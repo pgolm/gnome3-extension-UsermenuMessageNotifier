@@ -1,0 +1,10 @@
+<schemalist>
+    <schema path="/org/gnome/shell/extensions/Usermenu_Message_Notifier/"
+            id="org.gnome.shell.extensions.Usermenu_Message_Notifier">
+        <key type="s" name="counter-color">
+            <default>"#000"</default>
+            <summary>Conflict detection.</summary>
+            <description>If true conflict detection is enabled.</description>
+        </key>
+    </schema>
+</schemalist>
