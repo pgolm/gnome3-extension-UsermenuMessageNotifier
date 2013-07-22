@@ -21,23 +21,27 @@ const Gtk = imports.gi.Gtk;
 const Me = ExtensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
 
+const Gettext = imports.gettext.domain('Usermenu_Message_Notifier');
+const _ = Gettext.gettext;
+
 let settings;
 
 const SETTING_COUNTER_COLOR = 'counter-color';
 
 function init() {
     settings = Convenience.getSettings();
+    Convenience.initTranslations("Usermenu_Message_Notifier");
 }
 
 function buildPrefsWidget() {
     let frame = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, border_width: 0});
 
-    let colorLabel = new Gtk.Label({ label: "<b>Counter color: </b>",
+    let colorLabel = new Gtk.Label({ label: "<b>"+_("Counter color")+": </b>",
         use_markup: true,
         xalign: 0 });
     let colorText = new Gtk.Entry({ hexpand: true });
 
-    let saveBtn = new Gtk.Button({label: 'Save'});
+    let saveBtn = new Gtk.Button({label: _("Save")});
     saveBtn.connect('clicked', function (widget) {
         settings.set_string(SETTING_COUNTER_COLOR, colorText.get_text());
     });
